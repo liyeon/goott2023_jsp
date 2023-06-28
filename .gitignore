@@ -1,19 +1,15 @@
-/.metadata/
-/build/
-
-.classpath
-.project
-
-#Servers 폴더도 제외하기
-
-/Servers/
-
-
-# Created by https://www.toptal.com/developers/gitignore/api/windows,java,eclipse
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,java,eclipse
+# Created by https://www.toptal.com/developers/gitignore/api/eclipse,java,windows,macos
+# Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,java,windows,macos
 
 ### Eclipse ###
+/.metadata/
+/META-INF/
+/build/
 .metadata
+#Servers 폴더도 제외하기
+/Servers/
+.classpath
+.project
 bin/
 tmp/
 *.tmp
@@ -104,33 +100,6 @@ local.properties
 hs_err_pid*
 replay_pid*
 
-### Windows ###
-# Windows thumbnail cache files
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
-
-# Dump file
-*.stackdump
-
-# Folder config file
-[Dd]esktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-
 ### macOS ###
 # General
 .DS_Store
@@ -163,4 +132,31 @@ Temporary Items
 ### macOS Patch ###
 # iCloud generated files
 *.icloud
-# End of https://www.toptal.com/developers/gitignore/api/windows,java,eclipse
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.toptal.com/developers/gitignore/api/eclipse,java,windows,macos
