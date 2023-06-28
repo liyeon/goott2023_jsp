@@ -1,13 +1,38 @@
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse,java,windows,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,java,windows,macos
 
+# Spring 관련 폴더, 파일
+# sbteclipse plugin
+.target
+target
+/target/
+# STS (Spring Tool Suite)
+.springBeans
+pom.properties
+MANIFEST.MF
+# Log file
+*.log
+
+# Java annotation processor (APT)
+.factorypath
+
+settings.json
+
+# SpringBoot 관련 파일
+config.properties
+
+# 작업 중 프로젝트 폴더 안에 메모해둔 비밀번호나 공유하면 안되는 내용 등
+
+
 ### Eclipse ###
 /.metadata/
 /META-INF/
 /build/
 .metadata
-#Servers 폴더도 제외하기
+
+#Servers 폴더 제외
 /Servers/
+
 .classpath
 .project
 bin/
@@ -36,23 +61,14 @@ local.properties
 # CDT- autotools
 .autotools
 
-# Java annotation processor (APT)
-.factorypath
-
 # PDT-specific (PHP Development Tools)
 .buildpath
-
-# sbteclipse plugin
-.target
 
 # Tern plugin
 .tern-project
 
 # TeXlipse plugin
 .texlipse
-
-# STS (Spring Tool Suite)
-.springBeans
 
 # Code Recommenders
 .recommenders/
@@ -77,9 +93,6 @@ local.properties
 ### Java ###
 # Compiled class file
 *.class
-
-# Log file
-*.log
 
 # BlueJ files
 *.ctxt
