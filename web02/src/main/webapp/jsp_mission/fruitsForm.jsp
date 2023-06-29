@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="form.css"/>
+<link rel="stylesheet" href="../css/form.css"/>
 </head>
 <body>
 	<h1>좋아하는 과일 선택</h1>
