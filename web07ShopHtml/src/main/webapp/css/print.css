@@ -1,0 +1,151 @@
+
+#solution {
+    clear: both;
+}
+
+#solution h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 10px 80px;
+}
+
+#solution p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: #333;
+    margin: 0 0 0 80px;
+}
+
+#solution>div {
+    width: 260px;
+    height: 30%;
+    float: left;
+    padding: 10px;
+}
+
+#hosting {
+    background: url(../img/icon1.png) no-repeat left 15px;
+    border-right: 1px solid #ccc;
+}
+
+#security {
+    background: url(../img/icon2.png) no-repeat 10px 15px;
+    border-right: 1px solid #ccc;
+}
+
+#payment {
+    background: url(../img/icon3.png) no-repeat 10px 15px;
+}
+
+#sec_news,
+#news_notice {
+    float: left;
+    width: 420px;
+    margin: 15px 0 0 20px;
+}
+
+#sec_news h3,
+#news_notice h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+    width: 420px;
+    height: 24px;
+    background: url(../img/h3_back.jpg) no-repeat;
+    padding: 10px 0 0 25px;
+}
+
+.orange {
+    color: #f26522;
+}
+
+.brown {
+    color: #99553d;
+}
+
+#sec_news dl {
+    margin-left: 6px;
+}
+
+#sec_news dt {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    margin: 5px 0;
+    color: #f00;
+}
+
+#sec_news dd {
+    margin-left: 0;
+    color: #333;
+}
+
+#sec_news dt a {
+    color: #f00;
+    text-decoration: none;
+}
+
+#sec_news dt a:hover {
+    color: #f90;
+    text-decoration: underline;
+}
+
+#sec_news dd a {
+    color: #333;
+    text-decoration: none;
+}
+#sec_news dd a:hover{
+    color: #f90;
+    text-decoration: underline;
+}
+
+#news_notice table{
+    width: 400px;
+    border-collapse: collapse;
+    text-align: center;
+}
+#news_notice td{
+    padding: 6px 4px;
+    border-bottom: 1px dotted #999;
+}
+#news_notice td.contxt{
+    background: url(../img/tr_back.gif) no-repeat left center;
+    padding-left: 15px;
+    color: #333;
+}
+#news_notice a {
+    color: #333;
+    text-decoration: none;
+}
+#news_notice a:hover {
+    color: #f90;
+    text-decoration: underline;
+}
+footer{
+    border-top : 1px solid #b9b9b9;
+    margin: 24px auto 0  auto;
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    padding-top: 20px;
+    height: 80px;
+    background: url(../img/logo.png) no-repeat 40px center;
+    background-size: 150px;
+}
+
+footer #copy {
+    width: 500px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 20px 0 0 190px;
+}
+footer #social{
+    margin: 20px 20px 0 0;
+}
+footer #social img{
+    width: 40px;
+    height: 40px;
+}

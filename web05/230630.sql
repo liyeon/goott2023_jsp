@@ -47,3 +47,32 @@ select * from productinfo;
 create sequence productinfo_seq;
 drop table productinfo;
 commit;
+
+-- 230703
+--notices 테이블
+create table notices(
+    seq varchar2(10),
+    title varchar2(200),
+    writer varchar2(200),
+    content varchar2(1000),
+    regdate timestamp,
+    hit number
+);
+
+insert into notices values('1','jsp프로그래밍','cj','냉무',sysdate, 0);
+insert into notices values('2','jsp프로그래밍2','cj','냉무',sysdate, 0);
+insert into notices values('3','jsp프로그래밍3','cj','냉무',sysdate, 0);
+insert into notices values('4','jsp프로그래밍4','cj','냉무',sysdate, 0);
+insert into notices values('5','jsp프로그래밍5','cj','냉무',sysdate, 0);
+insert into notices values('6','jsp프로그래밍6','cj','냉무',sysdate, 0);
+
+select * from notices;
+
+select seq,title,writer,content,regdate,hit from notices order by to_number(seq) desc;
+select seq,title,writer,content,regdate,hit from notices where seq='1';
+
+
+insert into notices values(
+(select max(to_number(seq)+1) from notices),
+'jsp프로그래밍','리여니이잉','냉무',sysdate, 0);
+commit;

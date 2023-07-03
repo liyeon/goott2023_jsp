@@ -12,15 +12,10 @@
 <body>
 	<%
 	request.setCharacterEncoding("UTF-8");
-	String num = request.getParameter("num");
-	String name = request.getParameter("name");
-	String item = request.getParameter("item");
-	int price = Integer.parseInt(request.getParameter("price"));
+	String title=request.getParameter("title");
+	String content=request.getParameter("content");
 	
-	/* 
-	전달받은 내용을 디비에 입력하기 
-	디비에 연동하기
-	*/ 
+	//insert 작업
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	String sql = "";
@@ -32,27 +27,23 @@
 		String pass="123456";
 		Class.forName(driver);
 		conn = DriverManager.getConnection(url, user, pass);
-		sql="update productinfo set pname=?, pitem=?, pprice=? where pnum=?";
+		sql="insert into notices values((select max(to_number(seq)+1) from notices), ?,'작성자',?,SYSDATE, 0)";
 		pstmt=conn.prepareStatement(sql);
-		pstmt.setString(1, name);
-		pstmt.setString(2, item);
-		pstmt.setInt(3, price);
-		pstmt.setString(4, num);
+		pstmt.setString(1, title);
+		pstmt.setString(2, content);
 		// 실행
-		pstmt.executeUpdate();//update 실행
-		conn.commit();
-		System.out.println("업데이트성공");
-		response.sendRedirect("select.jsp");
+		pstmt.executeUpdate();//insert 실행
+		System.out.println("입력성공");
+		response.sendRedirect("notice.jsp");
 	} catch (Exception e) {
 		e.printStackTrace();
-		System.out.println("업데이트실패");
+		System.out.println("입력실패");
 	}finally{
 		// 자원회수
-		try{
-			if( pstmt != null ) pstmt.close();
-	        if( conn != null ) conn.close();
-		}catch(Exception e1){}
+		if(pstmt!=null)try{pstmt.close();}catch(Exception e){}
+		if(conn!=null)try{conn.close();}catch(Exception e){}
 	}
+	
 %>
 </body>
 </html>

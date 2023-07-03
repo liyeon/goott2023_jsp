@@ -1,0 +1,214 @@
+#sub_img{
+    width: 100%;
+    height: 179px;
+    background: url(../img/company/sub_back.png) no-repeat left top;
+}
+#sub_img_center{
+    width: 100%;
+    height: 179px;
+    background: url(../img/center/sub_back.png) no-repeat left top;
+}
+.sub_wrap{
+    display: flex;
+}
+#sub_menu{
+    width: 238px;
+    margin: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+}
+#sub_menu ul{
+    margin: 20px 0 0 10px;
+    list-style: none;
+}
+#sub_menu a{
+    text-decoration: none;
+    color: #666;
+    display: block;
+    height: 20px;
+    width: 150px;
+    padding: 7px;
+    border-bottom: 1px dotted #999;
+    background: url(../img/bullet.gif) no-repeat right center;
+}
+#sub_menu a:hover{
+    background: url(../img/bullet_orange.gif) no-repeat right center; 
+    color: #f90;
+}
+
+.ceo img{
+    width: 196px;
+    height: 226px;
+    border: 2px solid #ccc;
+}
+
+article.sub{
+    border: 1px solid #ccc;
+    width: 660px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+article.sub p{
+    line-height: 1.5em;
+    font-size: 12px;
+}
+article.sub .ceo{
+    margin: 0px 5px 5px 5px;
+    border: 1px solid #ccc;
+    height: 253px;
+    float: right;
+}
+figcaption{
+    text-align: center;
+    color: #39f;
+}
+
+article.sub h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 45px;
+    color: #ccc;
+    /* margin: 20px 0; */
+    font-weight:normal;
+}
+
+
+article.sub .y2011, article.sub .y2010, article.sub .y2009{
+    border-top: 1px solid #999;
+    width: 100%;
+    padding: 10px 10px 10px 130px;
+    box-sizing: border-box;
+}
+article.sub .y2011 h3, article.sub .y2010 h3, article.sub .y2009 h3{
+    display: none;
+}
+article.sub .y2011{
+    background: url(../img/company/2011.jpg) no-repeat left 10px;
+}
+article.sub .y2010{
+    background: url(../img/company/2010.jpg) no-repeat left 10px;
+}
+article.sub .y2009{
+    background: url(../img/company/2009.jpg) no-repeat left 10px;
+}
+
+article.sub .y2011 dt, article.sub .y2010 dt, article.sub .y2009 dt{
+    text-transform: capitalize;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    color: #39f;
+    padding: 3px 0 0 0;
+    margin: 0;
+}
+article.sub .y2011 dd, article.sub .y2010 dd, article.sub .y2009 dd{
+    padding: 0 0 0 15px;
+    line-height: 2em;
+    background: url(../img/company/h_bullet.gif) no-repeat left center;
+}
+
+article.sub .y2011 dl, article.sub .y2010 dl, article.sub .y2009 dl{
+    margin : 0 0 10px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px dotted #ccc;
+}
+article.sub dl.dot_none{
+    border-bottom: none!important;
+}
+/* notice */
+article.sub table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+article.sub table th{
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    background: url(../img/center/t_back.jpg) repeat-x center center;
+    color: #fff;
+}
+article.sub th.tno{
+    border-radius: 5px 0 0 5px;
+    width: 50px;
+}
+article.sub th.ttitle{
+    letter-spacing: 1.5em;
+
+}
+article.sub th.twriter{
+}
+rticle.sub th.tdate{
+}
+article.sub th.tread{
+    border-radius: 0px 5px 5px 0;
+}
+article.sub table td{
+    font-size: 12px;
+    padding: 10px;
+    line-height: 1.5em;
+    border-bottom: 1px dotted #999;
+}
+
+article.sub table .left{
+    text-align: left;
+}
+#table_search{
+    display: flex;
+    justify-content: right;
+}
+#table_search input[type="text"]{
+    border: 1px solid #39f;
+    border-radius: 5px;
+    width: 40%;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+article #table_search .input_box:focus{
+    background-color: antiquewhite;
+}
+#table_search input[type="button"]{
+    border: 1px solid #39f;
+    color: #fff;
+    border-radius: 5px;
+    margin-left: 5px;
+    width: 15%;
+    height: 30px;
+    box-sizing: border-box;
+    background: url(../img/center/t_back.jpg) no-repeat center center #39f;
+    background-size: 100px;
+    cursor: pointer;
+}
+#table_search{
+    margin-top: 20px;
+}
+#page_control{
+text-align: center;
+margin: 20px auto 0 auto;
+}
+#page_control ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+}
+#page_control li{
+    border: 1px solid #39f;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#page_control a{
+    text-decoration: none;
+    font-size: 15px;
+    color: #39f;
+    font-weight: bold;
+}
+#page_control li:hover{
+    border-color: #f90;
+
+}
+#page_control li:hover a{
+    color: #f90;
+
+}

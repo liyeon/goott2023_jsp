@@ -37,6 +37,7 @@ input[readonly] {
 		pstmt.setString(1, num);
 		rs = pstmt.executeQuery();
 		System.out.println("실행성공");
+		conn.commit();
 		while(rs.next()){
 			%>
 				<form action="update.jsp" method="post">
