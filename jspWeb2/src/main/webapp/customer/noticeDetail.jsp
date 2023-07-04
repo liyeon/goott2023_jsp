@@ -65,7 +65,7 @@
 </table>
 
 <a href="noticeEdit.jsp?c=<%=rs.getString("seq")%>">수정</a>
-<a href="">삭제</a>
+<a href="noticeDelProc.jsp?c=<%=rs.getString("seq")%>">삭제</a>
 <a href="notice.jsp">목록</a>
 <%
 		rs.close();
