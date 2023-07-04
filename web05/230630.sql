@@ -78,4 +78,28 @@ insert into notices values(
 
 -- 수정
 update notices set title='수정',content='수정내용' where seq=10;
+
+--회원정보 테이블
+create table member(
+id varchar2(50),
+pwd varchar2(50),
+name varchar2(50),
+gender varchar2(10),
+birth varchar2(10),
+is_lunar varchar2(10),
+cphone varchar2(15),
+email varchar2(50),
+habit varchar2(200),
+regdate date
+);
+select * from member;
+
+insert into member values(
+'blue','111','hong','여성','2023-1-1','양력',
+'111-111','a@n.com','movie',sysdate
+);
+commit;
+rollback;
+
+select pwd from member where id='blue'; 
 commit;
