@@ -1,0 +1,21 @@
+
+ [Data Base Connection Poll Bean]
+ 1. Servers/context.xml문서에 DB접속 정보가 있어야 한다.
+  -- 서버의 context.xml JNDI 등록
+ <Resource
+    name="jdbc/noticeXe"
+    auth="Container"
+    driverClassName="oracle.jdbc.driver.OracleDriver"
+    type="javax.sql.DataSource"
+    url="jdbc:oracle:thin:@localhost:1521:xe"
+    username="hr"
+    password="123456"
+    loginTimeout="50"
+    maxActive="50"
+    maxIdle="20"
+    maxWait="5000"
+    testOnBorrow="true"
+    />
+    
+2. WEB-INF/lib/폴더에 ojdbc6.jar파일을 넣어서 라이브러리를 사용할 준비를 해야한다.
+3. WEB-INF/lib/폴더에 commons-dbcp2-2.9.0.jar파일을 넣어서 라이브러리를 사용할 준비를 해야한다.
