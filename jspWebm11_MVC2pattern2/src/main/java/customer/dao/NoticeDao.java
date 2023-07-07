@@ -3,9 +3,10 @@ package customer.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import customer.db.DBCon;
-import customer.db.DBCpbean;
 import customer.vo.Notice;
 
 public class NoticeDao {
@@ -60,7 +61,6 @@ public class NoticeDao {
 		}
 	}// write
 
-	// 방법1
 	public boolean update(Notice notice) {
 		int flag = 0;
 		// 필요한 객체의 참조값을 담을 지역변수 만들기
@@ -169,5 +169,52 @@ public class NoticeDao {
 			}
 		}
 		return notice;
-	}
-}
+	}//getNotice
+	// 글 전체 목록을 리턴하는 메소드
+		public List<Notice> getList() {
+			// 할 일 목록을 담을 ArrayList 객체 생성
+			List<Notice> list = new ArrayList<>();
+			// 필요한 객체의 참조값을 담을 지역변수 만들기
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				// Connection 객체의 참조값얻어오기
+				conn = DBCon.getConnection();
+				// 실행할 sql문 준비하기
+				String sql = "SELECT * FROM notices ORDER BY TO_number(seq) DESC";
+				pstmt = conn.prepareStatement(sql);
+				// sql문의 ?에 바인딩 할 값이 있으면 바인딩 하고
+
+				// select 문 수행하고 결과 받아오기
+				rs = pstmt.executeQuery();
+				// 반복문 돌면서 결과 값 추출하기
+				while (rs.next()) {
+					// 현재 커서가 위치한 곳의 글정보를 읽어서 JobDto 객체에 담은 다음
+					Notice notice = new Notice();
+					notice = new Notice();
+					notice.setSeq(rs.getString("seq"));
+					notice.setTitle(rs.getString("title"));
+					notice.setWriter(rs.getString("writer"));
+					notice.setContent(rs.getString("content"));
+					notice.setRegdate(rs.getDate("regdate"));
+					notice.setHit(rs.getInt("hit"));
+					// 생성된 JobDto 객체의 참조값을 ArrayList 객체에 누적시킨다.
+					list.add(notice);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (rs != null)
+						rs.close();
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (Exception e) {
+				}
+			}
+			return list;
+		}// getList
+}//class

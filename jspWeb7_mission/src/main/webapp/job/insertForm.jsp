@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>직업등록</h1>
-	<form action="insert.jsp" method="post">
+	<form action="insert.do" method="post">
 		<label for="work">구인 직업</label><input type="text" name="work" />
 		<label for="company">회사명</label><input type="text" name="company" />
 		<label for="career">구인 경력</label><input type="text" name="career" />

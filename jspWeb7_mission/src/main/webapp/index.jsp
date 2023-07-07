@@ -1,12 +1,6 @@
-<%@page import="jobkorea.dao.JobDao"%>
-<%@page import="jobkorea.dto.JobDto"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-//JobDao객체를 이용해서 글 목록 얻오오기
-List<JobDto> list = JobDao.getInstance().getList();
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -26,17 +20,17 @@ List<JobDto> list = JobDao.getInstance().getList();
 			</tr>
 		</thead>
 		<tbody>
-			<%for(JobDto tmp:list){ %>
+			<c:forEach var="tmp" items="${list }">
 				<tr>
-					<td><%=tmp.getNo() %></td>		
-					<td><a href="./job/detail.jsp?num=<%=tmp.getNo()%>"><%=tmp.getTitle() %></a></td>
-					<td><%=tmp.getCompany() %></td>		
+					<td>${tmp.no }</td>		
+					<td><a href="./job/detail.do?num=${tmp.no }">${tmp.title }</a></td>
+					<td>${tmp.company }</td>		
 				</tr>
-			<%} %>
+			</c:forEach>
 		</tbody>
 	</table>
 	<div class="a_wrap">
-		<a href="./job/insertForm.jsp">직업등록</a>
+		<a href="./job/insertForm.do">직업등록</a>
 	</div>
 </body>
 </html>

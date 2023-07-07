@@ -9,14 +9,14 @@
 </head>
 <body>
 	<h1>글작성</h1>
-	<form action="noticeRegProc.jsp" method="post">
+	<form action="noticeRegProc.do" method="post">
 		<label for="title">제목</label><input type="text" name="title" />
 		<label for="txtFile">첨부파일</label><input type="file" name="txtFile" />
 		<label for="txtcontent">내용</label>
 		<textarea name="content" id="txtcontent" rows="" cols=""></textarea>
 		<div class="btn_wrap">
 			<input type="submit" value="저장" />
-		 	<input type="button" value="취소"class="cancel" onclick="location.href='notice.jsp'"/>
+		 	<input type="button" value="취소"class="cancel" onclick="location.href='notice.do'"/>
 		</div>
 	</form>
 </body>

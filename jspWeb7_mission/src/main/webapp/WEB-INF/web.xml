@@ -5,24 +5,19 @@
 	id="WebApp_ID" version="4.0">
 	<display-name>web7mission</display-name>
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>index.do</welcome-file>
 	</welcome-file-list> 
 	<display-name>CRUD jobkorea</display-name>
+	<!-- 서블릿 mapping -->
 	<servlet>
-		<servlet-name>front</servlet-name>
-		<servlet-class>jobkorea.controller.FrontController</servlet-class>
-		<init-param>
-			<param-name>charset</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
+	<!-- 클래스의 이름을 dispatcher라는 이름으로 쓰겠다. -->
+		<servlet-name>dispatcher</servlet-name>
+		<!-- /jspWebm10_MVC2pattern/src/main/java/customer/controller/MyDispatcher.java -->
+		<servlet-class>jobkorea.controller.MyDispatcher</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>front</servlet-name>
+	<!-- 위의 이름과 동일 -->
+		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 </web-app>

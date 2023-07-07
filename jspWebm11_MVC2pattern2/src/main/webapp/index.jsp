@@ -11,16 +11,8 @@
 <h1>첫페이지</h1>
 <table>
 	<tr>
-		<th>로그인</th>
-		<td><a href="./login/loginForm.jsp">로그인폼</a></td>
-	</tr>
-	<tr>
-		<th>회원가입</th>
-		<td><a href="./joinus/join.jsp">회원가입폼</a></td>
-	</tr>
-	<tr>
 		<th>공지사항게시판</th>
-		<td><a href="./customer/notice.jsp">공지사항목록</a></td>
+		<td><a href="./customer/notice.do">공지사항목록</a></td>
 	</tr>
 </table>
 </body>

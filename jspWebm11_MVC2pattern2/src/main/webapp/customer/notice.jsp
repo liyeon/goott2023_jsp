@@ -1,9 +1,6 @@
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -12,18 +9,6 @@
 <link rel="stylesheet" href="../css/style.css" media="all" />
 </head>
 <body>
-	<%
-	String sql = "select seq,title,writer,content,regdate,hit from notices order by to_number(seq) desc";
-	Class.forName("oracle.jdbc.driver.OracleDriver");
-	String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	String user = "hr";
-	String pw = "123456";
-	Connection conn = DriverManager.getConnection(url, user, pw);
-
-	// 실행 
-	Statement stmt = conn.createStatement();
-	ResultSet rs = stmt.executeQuery(sql);
-	%>
 	<h1>노티이이쓰</h1>
 	<table>
 		<thead>
@@ -36,29 +21,19 @@
 			</tr>
 		</thead>
 		<tbody>
-			<%
-			while (rs.next()) {
-			%>
+			<c:forEach var="tmp" items="${list }">
 			<tr>
-				<td><%=rs.getString("seq")%></td>
-				<td class="left"><a href="noticeDetail.do?c=<%=rs.getString("seq")%>"><%=rs.getString("title")%></a></td>
-				<td><%=rs.getString("writer")%></td>
-				<td><%=rs.getString("regdate")%></td>
-				<td><%=rs.getInt("hit")%></td>
+				<td>${tmp.seq }</td>
+				<td class="left"><a href="noticeDetail.do?c=${tmp.seq }">${tmp.title }</a></td>
+				<td>${tmp.writer }</td>
+				<td>${tmp.regdate }</td>
+				<td>${tmp.hit }</td>
 			</tr>
-			<%
-			}
-			%>
+			</c:forEach>
 		</tbody>
 	</table>
 	<div class="a_wrap">
-		<a href="noticeReg.jsp">글쓰기</a>
+		<a href="noticeReg.do">글쓰기</a>
 	</div>
-	
-	<%
-		rs.close();
-		stmt.close();
-		conn.close();
-	%>
 </body>
 </html>
