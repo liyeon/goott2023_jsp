@@ -31,6 +31,6 @@ public class JobEditProcController implements Controller {
 		// jsp 에 전달하기 위한 포워딩 처리
 		// forward 처리
 		request.setAttribute("dto", dto);
-		request.getRequestDispatcher("detail.jsp?num="+seq).forward(request, response);
+		request.getRequestDispatcher("detail.do?num="+seq).forward(request, response);
 	}
 }// class

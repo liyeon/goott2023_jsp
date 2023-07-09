@@ -47,7 +47,6 @@ public class JobInsertProcController implements Controller {
 		
 	   	//3. 응답한다.
 		JobDao dao=new JobDao();
-		dao.insert(dto);
 		boolean b = dao.insert(dto);
 		System.out.println("글작성 성공여부 : "+b);
 		// jsp 에 전달하기 위한 포워딩 처리

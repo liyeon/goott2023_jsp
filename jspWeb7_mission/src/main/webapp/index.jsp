@@ -1,36 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>index</title>
-<link rel="stylesheet" href="./css/style.css" media="all" />
-</head>
-<body>
-	<h1>첫화면</h1>
-	
-	<table>
-		<thead>
-			<tr>
-				<th>글번호</th>
-				<th>공고명</th>
-				<th>회사</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="tmp" items="${list }">
-				<tr>
-					<td>${tmp.no }</td>		
-					<td><a href="./job/detail.do?num=${tmp.no }">${tmp.title }</a></td>
-					<td>${tmp.company }</td>		
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	<div class="a_wrap">
-		<a href="./job/insertForm.do">직업등록</a>
-	</div>
+<!-- header -->
+<%@ include file="./header.jsp"%>
+	<article>
+		<table>
+			<tbody>
+				<c:forEach var="tmp" items="${list }">
+					<tr onclick="location.href='./job/detail.do?num=${tmp.no }';">
+						<td class="list_company"><span>${tmp.no }.</span>${tmp.company }</td>	
+						<td class="list_td">
+							<div>
+								<h3>${tmp.title }</h3>
+								<ul>
+									<li>경력 ${tmp.career }↑ </li>
+									<li> 학력 ${tmp.academic_ability } </li>
+									<li>${tmp.salary }↑</li>
+									<li>${tmp.location }</li>
+									<li>${tmp.employment_type }</li>
+								</ul>
+							</div>
+						</td>
+						<td>
+							<a href="#" class="btn_orange">✓ 즉시지원</a>
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</article>
 </body>
 </html>
