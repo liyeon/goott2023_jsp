@@ -182,3 +182,26 @@ form.join input[type="submit"]{
 .a_wrap a:nth-child(3){
 	background:#bbb;
 }
+
+/*검색창*/
+.form_search{
+	width:var(--size);
+	display:flex;
+	justify-content: space-between;
+}
+.form_search h1 {
+	width:200px;
+}
+form.search{
+	width:360px;
+	flex-direction : row;
+	justify-content : space-between;
+	margin-bottom:10px;
+}
+.search select{
+	width:80px;
+}
+.search input[type="submit"]{
+	width:80px;
+	font-size:14px;
+}

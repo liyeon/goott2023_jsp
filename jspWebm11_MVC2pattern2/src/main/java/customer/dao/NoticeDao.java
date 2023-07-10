@@ -217,4 +217,133 @@ public class NoticeDao {
 			}
 			return list;
 		}// getList
+
+		public List<Notice> getSearch(String field, String query) {
+			// 할 일 목록을 담을 ArrayList 객체 생성
+			List<Notice> list = new ArrayList<>();
+			// 필요한 객체의 참조값을 담을 지역변수 만들기
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				// Connection 객체의 참조값얻어오기
+				conn = DBCon.getConnection();
+				// 실행할 sql문 준비하기
+				String sql = "SELECT * FROM notices where "+field+" like ? ORDER BY TO_number(seq) DESC";
+				pstmt = conn.prepareStatement(sql);
+				// sql문의 ?에 바인딩 할 값이 있으면 바인딩 하고
+				pstmt.setString(1, "%"+query+"%");
+				// select 문 수행하고 결과 받아오기
+				rs = pstmt.executeQuery();
+				// 반복문 돌면서 결과 값 추출하기
+				while (rs.next()) {
+					// 현재 커서가 위치한 곳의 글정보를 읽어서 JobDto 객체에 담은 다음
+					Notice notice = new Notice();
+					notice = new Notice();
+					notice.setSeq(rs.getString("seq"));
+					notice.setTitle(rs.getString("title"));
+					notice.setWriter(rs.getString("writer"));
+					notice.setContent(rs.getString("content"));
+					notice.setRegdate(rs.getDate("regdate"));
+					notice.setHit(rs.getInt("hit"));
+					// 생성된 JobDto 객체의 참조값을 ArrayList 객체에 누적시킨다.
+					list.add(notice);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (rs != null)
+						rs.close();
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (Exception e) {
+				}
+			}
+			return list;
+		}//getSearch
+
+		//조회수 처리 메소드
+		/*
+		 * 
+		 */
+		public Notice getNotice(String seq, String hit) {
+			Notice notice = null;
+			// 필요한 객체의 참조값을 담을 지역변수 만들기
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				conn = DBCon.getConnection();
+				int hnum = Integer.parseInt(hit);
+				
+				boolean b = hitupdate(seq,hnum);
+				System.out.println("조회수 업데이트 성공여부 : "+b);
+				String sql = "select * from notices where seq=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, seq);
+				rs = pstmt.executeQuery();
+				if (rs.next()) {
+					notice = new Notice();
+					notice.setSeq(seq);
+					notice.setTitle(rs.getString("title"));
+					notice.setWriter(rs.getString("writer"));
+					notice.setContent(rs.getString("content"));
+					notice.setRegdate(rs.getDate("regdate"));
+					notice.setHit(rs.getInt("hit"));
+				} // while종료
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (rs != null)
+						rs.close();
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (Exception e) {
+				}
+			}
+			return notice;
+		}//조회수 처리 종
+
+		private boolean hitupdate(String seq, int hnum) {
+			System.out.println("조회수업데이트");
+			System.out.println("인덱스 번호 : "+seq+" 조회수 : "+hnum);
+			int flag = 0;
+			// 필요한 객체의 참조값을 담을 지역변수 만들기
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			try {
+				// Connection 객체의 참조값얻어오기
+				conn = DBCon.getConnection();
+				// 실행할 sql문 준비하기
+				String sql = "update notices " + "set hit=? where seq=?";
+				
+				pstmt = conn.prepareStatement(sql);
+				// ?에 바인딩 할 값이 있으면 바인딩한다.
+				pstmt.setInt(1, hnum+1);
+				pstmt.setString(2, seq);
+				// sql문을 수행하고 update or insert or delete 된 row의 개수를 리턴받는다.
+				flag = pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (Exception e) {
+				}
+			} // fianlly
+			if (flag > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 }//class

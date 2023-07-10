@@ -24,7 +24,7 @@
 		<textarea name="content" id="txtcontent">${notice.content}</textarea>
 		<div class="btn_wrap">
 			<input type="submit" value="수정" />
-			<input type="button" value="취소"class="cancel" onclick="location.href='noticeDetail.jsp?c=${notice.seq}'"/>
+			<input type="button" value="취소"class="cancel" onclick="location.href='noticeDetail.do?c=${notice.seq}'"/>
 		</div>
 	</form>
 

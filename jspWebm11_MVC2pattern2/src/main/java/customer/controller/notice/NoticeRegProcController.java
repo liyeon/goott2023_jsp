@@ -31,6 +31,6 @@ public class NoticeRegProcController implements Controller {
 		// jsp 에 전달하기 위한 포워딩 처리
 		// forward 처리
 		request.setAttribute("notice", notice);
-		request.getRequestDispatcher("notice.jsp").forward(request, response);
+		request.getRequestDispatcher("notice.do").forward(request, response);
 	}
 }// class
