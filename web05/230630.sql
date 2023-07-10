@@ -68,7 +68,7 @@ insert into notices values('6','jsp프로그래밍6','cj','냉무',sysdate, 0);
 
 select * from notices;
 
-select seq,title,writer,content,regdate,hit from notices order by to_number(seq) desc;
+select seq,title,writer,content,regdate,hit from notices where title like '%프락%' order by to_number(seq) desc;
 select seq,title,writer,content,regdate,hit from notices where seq='1';
 
 
@@ -76,6 +76,7 @@ insert into notices values(
 (select max(to_number(seq)+1) from notices),
 'jsp프로그래밍','리여니이잉','냉무',sysdate, 0);
 
+update notices set hit=hit+1 where seq='15';
 -- 수정
 update notices set title='수정',content='수정내용' where seq=10;
 
