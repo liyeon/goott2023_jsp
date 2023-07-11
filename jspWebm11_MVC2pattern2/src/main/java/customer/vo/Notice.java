@@ -10,9 +10,9 @@ public class Notice {
 	private String content;
 	private Date regdate;
 	private int hit;
-	
+	private String fileSrc;
 	public Notice() {}
-	public Notice(String seq, String title, String writer, String content, Date regdate, int hit) {
+	public Notice(String seq, String title, String writer, String content, Date regdate, int hit, String fileSrc) {
 		super();
 		this.seq = seq;
 		this.title = title;
@@ -20,6 +20,7 @@ public class Notice {
 		this.content = content;
 		this.regdate = regdate;
 		this.hit = hit;
+		this.fileSrc = fileSrc;
 	}
 	public String getSeq() {
 		return seq;
@@ -56,6 +57,12 @@ public class Notice {
 	}
 	public void setHit(int hit) {
 		this.hit = hit;
+	}
+	public String getFileSrc() {
+		return fileSrc;
+	}
+	public void setFileSrc(String fileSrc) {
+		this.fileSrc = fileSrc;
 	}
 	
 }

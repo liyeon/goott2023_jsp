@@ -17,6 +17,17 @@
 </script>
 </head>
 <body>
+<div class="login_txt">
+	<c:if test="${empty sessionScope.uid }">
+		<a href="../login/login.do">로그인</a>
+		<a href="#">회원가입</a>
+	</c:if>
+	<c:if test="${not empty sessionScope.uid }">
+		<a href="../login/logoutProc.do">로그아웃</a>
+	</c:if>
+</div>
+
+	
 	<div class="form_search">
 		<h1>노티이이쓰</h1>
 		<form action="notice.do" method="get" class="search">

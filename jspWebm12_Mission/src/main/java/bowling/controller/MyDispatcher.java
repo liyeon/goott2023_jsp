@@ -1,4 +1,4 @@
-package customer.controller;
+package bowling.controller;
 
 import java.io.IOException;
 
@@ -7,15 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import customer.controller.member.LoginController;
-import customer.controller.member.LoginProcController;
-import customer.controller.notice.NoticeDelProcController;
-import customer.controller.notice.NoticeDetailController;
-import customer.controller.notice.NoticeEditController;
-import customer.controller.notice.NoticeEditProcController;
-import customer.controller.notice.NoticeListController;
-import customer.controller.notice.NoticeRegController;
-import customer.controller.notice.NoticeRegProcController;
+import bowling.controller.board.BowlingDelProcController;
+import bowling.controller.board.BowlingDetailController;
+import bowling.controller.board.BowlingEditController;
+import bowling.controller.board.BowlingEditProcController;
+import bowling.controller.board.BowlingListController;
+import bowling.controller.board.BowlingRegController;
+import bowling.controller.board.BowlingRegProcController;
+import bowling.controller.member.LoginController;
+import bowling.controller.member.LoginProcController;
+import bowling.controller.member.LogoutProcController;
 /*
  * "/dispatcher" 요청에 대해서 응답할 무언가(Servlet)을 만들 클래스 설계하기
  * 1. HttpServlet 클래스를 상속받는다.
@@ -54,22 +55,22 @@ public class MyDispatcher extends HttpServlet {// 클라이언트의 신호를 �
 //		NoticeEditController editController = new NoticeEditController();
 		Controller controller = null;
 		try {
-			if(com.equals("/customer/noticeDetail.do")) {
-				controller = new NoticeDetailController();
-			}else if(com.equals("/customer/noticeEdit.do")) {
-				controller = new NoticeEditController();
-			}else if(com.equals("/customer/noticeEditProc.do")) {
-				controller = new NoticeEditProcController();
-			}else if(com.equals("/customer/noticeDetail.do")) {
-				controller = new NoticeDetailController();
-			}else if(com.equals("/customer/noticeReg.do")) {
-				controller = new NoticeRegController();
-			}else if(com.equals("/customer/noticeRegProc.do")) {
-				controller = new NoticeRegProcController();
-			}else if(com.equals("/customer/noticeDelProc.do")) {
-				controller = new NoticeDelProcController();
-			}else if(com.equals("/customer/notice.do")) {
-				controller = new NoticeListController();
+			if(com.equals("/bowling/detail.do")) {
+				controller = new BowlingDetailController();
+			}else if(com.equals("/bowling/edit.do")) {
+				controller = new BowlingEditController();
+			}else if(com.equals("/bowling/editProc.do")) {
+				controller = new BowlingEditProcController();
+			}else if(com.equals("/bowling/detail.do")) {
+				controller = new BowlingDetailController();
+			}else if(com.equals("/bowling/insert.do")) {
+				controller = new BowlingRegController();
+			}else if(com.equals("/bowling/insertProc.do")) {
+				controller = new BowlingRegProcController();
+			}else if(com.equals("/bowling/delProc.do")) {
+				controller = new BowlingDelProcController();
+			}else if(com.equals("/bowling/list.do")) {
+				controller = new BowlingListController();
 			}else if(com.equals("/login/login.do")) {
 				controller = new LoginController();
 			}else if(com.equals("/login/loginProc.do")) {

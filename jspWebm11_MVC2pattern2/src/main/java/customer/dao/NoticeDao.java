@@ -35,11 +35,12 @@ public class NoticeDao {
 			// Connection 객체의 참조값얻어오기
 			conn = DBCon.getConnection();
 			// 실행할 sql문 준비하기
-			String sql = "insert into notices values((select max(to_number(seq)+1) from notices), ?,'작성자',?,SYSDATE, 0)";
+			String sql = "insert into notices values((select max(to_number(seq)+1) from notices), ?,'작성자',?,SYSDATE, 0,?)";
 			pstmt = conn.prepareStatement(sql);
 			// ?에 바인딩 할 값이 있으면 바인딩한다.
 			pstmt.setString(1, n.getTitle());
 			pstmt.setString(2, n.getContent());
+			pstmt.setString(3, n.getFileSrc());
 			// sql문을 수행하고 update or insert or delete 된 row의 개수를 리턴받는다.
 			flag = pstmt.executeUpdate();
 

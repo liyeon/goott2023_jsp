@@ -8,15 +8,15 @@
 <link rel="stylesheet" href="../css/style.css" media="all" />
 <script>
 	function cancelUrl(){
-		location.href="notice.do";
+		location.href="list.do";
 	}
 </script>
 </head>
 <body>
-	<h1>글작성</h1>
-	<form action="noticeRegProc.do" method="post" enctype="multipart/form-data">
+	<h1>볼링 글작성</h1>
+	<form action="insertProc.do" method="post">
 		<label for="title">제목</label><input type="text" name="title" />
-		<label for="file">첨부파일</label><input type="file" name="file" />
+		<label for="txtFile">첨부파일</label><input type="file" name="txtFile" />
 		<label for="txtcontent">내용</label>
 		<textarea name="content" id="txtcontent" rows="" cols=""></textarea>
 		<div class="btn_wrap">

@@ -20,7 +20,7 @@
 	</tr>
 	<tr>
 		<th>공지사항게시판</th>
-		<td><a href="./customer/notice.do">공지사항목록</a></td>
+		<td><a href="./bowling/list.do">공지사항목록</a></td>
 	</tr>
 </table>
 </body>
