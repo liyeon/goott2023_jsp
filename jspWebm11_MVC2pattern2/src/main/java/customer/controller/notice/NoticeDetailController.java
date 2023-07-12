@@ -18,7 +18,7 @@ public class NoticeDetailController implements Controller {
 		System.out.println("조회수 : "+hit);
 		NoticeDao dao = new NoticeDao();
 		Notice notice = dao.getNotice(seq,hit);
-
+		System.out.println(notice.getFileSrc());
 		// jsp 에 전달하기 위한 포워딩 처리
 		// forward 처리
 		request.setAttribute("notice", notice);

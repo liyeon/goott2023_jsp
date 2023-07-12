@@ -56,7 +56,8 @@ create table notices(
     writer varchar2(200),
     content varchar2(1000),
     regdate timestamp,
-    hit number
+    hit number,
+    filesrc varchar2(100)
 );
 
 insert into notices values('1','jsp프로그래밍','cj','냉무',sysdate, 0);

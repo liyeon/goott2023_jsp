@@ -18,6 +18,7 @@ public class BowlingEditProcController implements Controller {
 	    // 폼 전송되는 수정할 글의 정보를 읽어온다.
 	   	String title = request.getParameter("title");
 		String content = request.getParameter("content");
+		String hit = request.getParameter("hit");
 	   	BowlingDto dto = new BowlingDto();
 	   	dto.setBtitle(title);
 	   	dto.setBcontent(content);
@@ -29,6 +30,6 @@ public class BowlingEditProcController implements Controller {
 		// jsp 에 전달하기 위한 포워딩 처리
 		// forward 처리
 		request.setAttribute("dto", dto);
-		request.getRequestDispatcher("detail.do").forward(request, response);
+		request.getRequestDispatcher("detail.do?c="+seq+"&hit"+hit).forward(request, response);
 	}
 }// class

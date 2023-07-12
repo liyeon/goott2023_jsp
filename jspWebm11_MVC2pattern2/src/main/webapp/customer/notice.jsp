@@ -66,8 +66,11 @@
 			</c:if>
 		</tbody>
 	</table>
-	<div class="a_wrap">
-		<a href="noticeReg.do">글쓰기</a>
-	</div>
+	
+	<c:if test="${not empty sessionScope.uid }">
+		<div class="a_wrap">
+			<a href="noticeReg.do">글쓰기</a>
+		</div>
+	</c:if>
 </body>
 </html>

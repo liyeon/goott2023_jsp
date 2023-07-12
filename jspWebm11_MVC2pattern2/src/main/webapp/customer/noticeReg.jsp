@@ -15,6 +15,7 @@
 <body>
 	<h1>글작성</h1>
 	<form action="noticeRegProc.do" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="uid" value="${uid }" />
 		<label for="title">제목</label><input type="text" name="title" />
 		<label for="file">첨부파일</label><input type="file" name="file" />
 		<label for="txtcontent">내용</label>

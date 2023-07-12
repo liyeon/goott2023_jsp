@@ -123,7 +123,7 @@ public class BowlingDao {
 			dto = new BowlingDto();
 			String sql = "select * from bowlboard where bno=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, num);
+			pstmt.setInt(1, Integer.parseInt(num));
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				dto = new BowlingDto();

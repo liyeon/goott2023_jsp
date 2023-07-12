@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import customer.controller.member.LoginController;
 import customer.controller.member.LoginProcController;
+import customer.controller.notice.DownloadController;
 import customer.controller.notice.NoticeDelProcController;
 import customer.controller.notice.NoticeDetailController;
 import customer.controller.notice.NoticeEditController;
@@ -76,6 +77,8 @@ public class MyDispatcher extends HttpServlet {// 클라이언트의 신호를 �
 				controller = new LoginProcController();
 			}else if(com.equals("/login/logoutProc.do")) {
 				controller = new LogoutProcController();
+			}else if(com.equals("/customer/download.do")) {
+				controller = new DownloadController();
 			}
 			controller.excute(request,response);
 		} catch (Exception e) {}

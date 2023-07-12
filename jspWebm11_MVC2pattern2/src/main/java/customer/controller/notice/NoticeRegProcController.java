@@ -22,18 +22,20 @@ public class NoticeRegProcController implements Controller {
 	    // 폼 전송되는 수정할 글의 정보를 읽어온다.
 		
 //		path 만들기
-		String path = "customer/upload";
+		String path = "customer/upload/";
 		ServletContext ctx = request.getServletContext();
-		path=ctx.getRealPath(path);
-		System.out.println("real path : "+path);
+		path = ctx.getRealPath(path);
+		System.out.println("Real path: "+path);
 		// multipart 형식으로 데이터 받기
-		MultipartRequest req  = new MultipartRequest(request,path,10*1024*1024,"utf-8",new DefaultFileRenamePolicy());// 파일 사이즈를 10메가로 저장
-	   	String title = req.getParameter("title");
+		MultipartRequest req = new MultipartRequest(request, path, 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
+		String uid = req.getParameter("uid");
+		String title = req.getParameter("title");
 		String content = req.getParameter("content");
 		String file = req.getFilesystemName("file");
 		
 		System.out.println(title+" : "+file);
 	   	Notice notice = new Notice();
+	   	notice.setWriter(uid);
 	   	notice.setSeq(seq);
 	   	notice.setTitle(title);
 	   	notice.setContent(content);
@@ -45,7 +47,6 @@ public class NoticeRegProcController implements Controller {
 		System.out.println("글작성 성공여부 : "+n);
 		// jsp 에 전달하기 위한 포워딩 처리
 		// forward 처리
-		request.setAttribute("notice", notice);
-		request.getRequestDispatcher("notice.do").forward(request, response);
-	}
+		response.sendRedirect("notice.do");		
+		}
 }// class

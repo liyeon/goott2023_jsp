@@ -14,13 +14,14 @@
 		<label for="c">글번호</label>
 		<input type="text" name="c" value="${dto.bno}" readonly/> 
 		<label for="title">제목</label>
-		<input type="text" name="title" value="${dto.btitle}" readonly/> 
+		<input type="text" name="title" value="${dto.btitle}"/> 
 		<label for="txtFile">첨부파일</label><input type="file" name="txtFile" value="첨부파일.docx"/>
 		<label for="txtcontent">내용</label>
 		<textarea name="content" id="txtcontent">${dto.bcontent}</textarea>
+		<input type="hidden" name="hit" value="${dto.bcnt }" />
 		<div class="btn_wrap">
 			<input type="submit" value="수정" />
-			<input type="button" value="취소"class="cancel" onclick="location.href='detail.do?c=${dto.bno}'"/>
+			<input type="button" value="취소"class="cancel" onclick="location.href='detail.do?c=${dto.bno}&hit=${dto.bcnt }'"/>
 		</div>
 	</form>
 
