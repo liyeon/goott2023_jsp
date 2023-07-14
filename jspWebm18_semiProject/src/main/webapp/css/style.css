@@ -1,0 +1,246 @@
+@charset "UTF-8";
+:root {
+   --size:360px;
+   --color-black:#121212;
+   --color-gray:#f1f1f1;
+   --color-orange:#f23826;
+}
+@font-face {
+	font-family: 'SUITE-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2')
+		format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+a{
+	text-decoration: none;
+}
+* {
+	font-family: 'SUITE-Regular';
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	color: var(--color-black);
+}
+html{
+	width: 100%;
+	height: 100%;
+}
+body {
+	display: flex;
+	width:100%;
+	height:100%;
+	max-height: 100%;
+	overflow:auto;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+.category {
+	color: #fff;
+	border-radius: 20px;
+	padding:5px 10px;
+	font-size:10px;
+	background:var(--color-orange);
+}
+.category.gray{
+	background:#8DA0B2;
+}
+.category.green{
+	background:#94c205;
+}
+
+.category.blue{
+	background:#a1a0ff;
+}
+section{
+	height:100%;
+	width:80%;
+	margin-top:60px;
+}
+table {
+	width:100%;
+	border-collapse: collapse;
+	text-align: center;
+	margin-bottom:10px;
+	font-size:12px;
+}
+table caption{
+	border:1px solid var(--color-black);
+	border-bottom:none;
+	background:var(--color-gray);
+	padding:20px;
+	text-align:left;
+	font-size:20px;
+}
+th{
+	background:var(--color-black);
+	color:#f0f0f0;
+}
+
+th, td {
+	padding: 10px;
+}
+tr:first-child{
+	border-top:1px solid #b7b7b7;
+	border-bottom:1px solid #b7b7b7;
+}
+tr:nth-child(even){
+	background:#fafafa;
+}
+
+.left{
+	padding:10px 20px;
+	text-align:left;
+}
+
+.right{
+	text-align:right;
+}
+
+#content td{
+	height:500px;
+	font-size:18px;
+	vertical-align : top;
+	padding:20px;
+	overflow: auto;
+}
+h1 img{
+	width:260px;
+	height:auto;
+}
+/* 폼 */
+form{
+	width:var(--size);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+form label{
+	margin-top:10px;
+}
+form input[readonly]{
+	background:#f0f0f0;
+}
+form input[type="text"],
+form input[type="file"],
+form input[type="tel"],
+form input[type="email"],
+form input[type="password"],
+form select{
+	border:1px solid var(--color-black);
+	padding:10px;
+	border-radius: 5px;
+}
+form textarea{
+	height:400px;
+	resize: none;
+	padding:30px;
+	font-size:20px;
+	line-height:1.5em;
+}
+
+.btn_wrap {
+	margin-top : 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+form input[type="button"].cancel{
+	background:#fff;
+	border:1px solid var(--color-orange);
+	color:var(--color-orange);
+	text-align: center;
+	text-decoration: none;
+	line-height: 20px;
+}
+form input[type="button"],
+form input[type="submit"],
+form input[type="reset"], form a{
+	background: var(--color-orange);
+	color:#fff;
+	border:none;
+	cursor:pointer;
+	font-size:20px;
+	border-radius : 10px;
+	height:50px;
+	margin-top:10px;
+}
+.btn_mini{
+	background:var(--color-orange);
+	text-decoration:none;
+	padding:10px;
+	border-radius : 5px;
+	color:#fff;
+	margin-top:10px;
+	display: inline-block;
+	font-size:12px;
+}
+
+header {
+	width:100%;
+	display: flex;
+	align-items :center;
+	justify-content: space-between;
+	border-bottom:1px solid rgb(196, 197, 200);
+	padding:20px;
+	margin-bottom : 10px;
+}
+header h1{
+	width:110px;
+	height:auto;
+}
+header h1 img{
+	width:100%;
+}
+/*검색창*/
+.form_search h1 {
+	width:200px;
+}
+.form_search form{
+	width:500px;
+	box-sizing:border-box;
+	display:flex;
+	justify-content: space-between;
+	flex-direction : row;
+	border: 2px solid var(--color-orange);
+	border-radius: 50px;
+	padding: 0px 15px;
+}
+.form_search select{
+	width:80px;
+	border:none;
+	cursor:pointer;
+	color:var(--color-orange);
+}
+.form_search input[type="text"]{
+	border:none;
+	width:80%;
+}
+.form_search input[type="submit"]{
+	width:25px;
+	height:25px;
+	margin-top:6px;
+	background: #fff no-repeat center center url(../img/search.svg);
+}
+
+header ul{
+	display:flex;
+	justify-content: space-between;
+	list-style: none;
+	text-decoration: none;
+}
+header ul li{
+	padding: 10px 0;
+}
+header ul li:last-child a{
+	border:none;
+}
+header ul li a {
+	color : #6e6e6e;
+	text-decoration: none;
+	padding: 0 10px;
+	border-right: 1px solid #f0f0f0;
+}
