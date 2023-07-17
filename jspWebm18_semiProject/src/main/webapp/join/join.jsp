@@ -1,19 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" style="height:100%;">
 <head>
 <meta charset="UTF-8">
 <title>벅스 : 회원가입</title>
 <link rel="stylesheet" href="../css/style.css" media="all" />
+<link rel="shortcut icon" href="../img/faviconBugs.ico" />
 </head>
-<body>
+<body style="height:100%;">
 <h1>
 <img src="../img/logo.svg" alt="" />
 </h1>
 	<form action="joinProc.do" method="post">
         <label for="id">아이디</label>
-        <input type="text" id="id" name="id" placeholder="아이디" maxlength="13" required>
+        <input type="text" id="id" name="id" placeholder="아이디" maxlength="13" pattern="[A-Za-z0-9]+" required>
         <label for="pwd">비밀번호</label>
         <input type="password" id="pwd" name="pwd" placeholder="비밀번호를 입력해주세요" required>
         <label for="name">이름</label>

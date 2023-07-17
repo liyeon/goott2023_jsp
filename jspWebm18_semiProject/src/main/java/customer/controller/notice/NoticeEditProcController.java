@@ -16,11 +16,12 @@ public class NoticeEditProcController implements Controller{
 		int seq=Integer.parseInt(request.getParameter("c"));
 		String title=request.getParameter("title");
 		String content=request.getParameter("content");
-
+		String category = request.getParameter("category");
 		BoardDto dto=new BoardDto();
 		dto.setBtitle(title);
 		dto.setBcontent(content);
 		dto.setBno(seq);
+		dto.setBcategory(category);
 		BoardDao dao=BoardDao.getInstance();
 		dao.update(dto); 
 		

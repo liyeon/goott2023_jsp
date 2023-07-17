@@ -73,13 +73,14 @@ public class BoardDao {
 			// Connection 객체의 참조값얻어오기
 			conn = DBCon.getConnection();
 			// 실행할 sql문 준비하기
-			String sql = "update bugsboard set btitle=?,bcontent=? where bno=?";
+			String sql = "update bugsboard set btitle=?,bcontent=?, bcategory=? where bno=?";
 
 			pstmt = conn.prepareStatement(sql);
 			// ?에 바인딩 할 값이 있으면 바인딩한다.
 			pstmt.setString(1, dto.getBtitle());
 			pstmt.setString(2, dto.getBcontent());
-			pstmt.setInt(3, dto.getBno());
+			pstmt.setString(3, dto.getBcategory());
+			pstmt.setInt(4, dto.getBno());
 			// sql문을 수행하고 update or insert or delete 된 row의 개수를 리턴받는다.
 			flag = pstmt.executeUpdate();
 
@@ -176,7 +177,7 @@ public class BoardDao {
 		return dto;
 	}//getNotice
 	// 글 전체 목록을 리턴하는 메소드
-		public List<BoardDto> getList() {
+		public List<BoardDto> getList( String cate) {
 			// 할 일 목록을 담을 ArrayList 객체 생성
 			List<BoardDto> list = new ArrayList<>();
 			// 필요한 객체의 참조값을 담을 지역변수 만들기
@@ -187,10 +188,10 @@ public class BoardDao {
 				// Connection 객체의 참조값얻어오기
 				conn = DBCon.getConnection();
 				// 실행할 sql문 준비하기
-				String sql = "SELECT * FROM bugsboard";
+				String sql = "SELECT * FROM bugsboard Where bcategory=? ORDER by bno DESC";
 				pstmt = conn.prepareStatement(sql);
 				// sql문의 ?에 바인딩 할 값이 있으면 바인딩 하고
-
+				pstmt.setString(1, cate);
 				// select 문 수행하고 결과 받아오기
 				rs = pstmt.executeQuery();
 				// 반복문 돌면서 결과 값 추출하기

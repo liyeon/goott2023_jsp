@@ -16,7 +16,7 @@ public class NoticeDelProcController implements Controller{
 
 		BoardDao dao = BoardDao.getInstance();
 		boolean b =dao.delete(seq);
-
+		System.out.println("삭제 상태 : "+b);
 
 		if(b==true)response.sendRedirect("notice.do");
 		else System.out.println("삭제 오류");

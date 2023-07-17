@@ -25,18 +25,52 @@ a{
 }
 html{
 	width: 100%;
-	height: 100%;
 }
 body {
 	display: flex;
 	width:100%;
-	height:100%;
-	max-height: 100%;
+	min-width:1200px;
 	overflow:auto;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	align-content: center;
+}
+
+nav{
+	display: flex;
+	justify-content: left;
+	min-width: 1100px;
+    width: 80%;
+    margin : 30px 0;
+}
+nav ul {
+	display: flex;
+	justify-content: space-between;
+	list-style: none;
+	width: 100%;
+}
+nav ul li{
+	width:20%;
+}
+nav ul li a{
+	display:inline-block;
+	border : 1px solid var(--color-orange);
+	border-right:none;
+	width : 100%;
+	height : 50px;
+	line-height:50px;
+	text-align:center;
+	transition: all 300ms ease;
+}
+nav ul li.active a,
+nav ul li a:hover
+{
+	background:var(--color-orange);
+	color : #fff;
+}
+nav ul li:last-child a{
+	border-right:1px solid var(--color-orange);
 }
 .category {
 	color: #fff;
@@ -44,6 +78,9 @@ body {
 	padding:5px 10px;
 	font-size:10px;
 	background:var(--color-orange);
+	width : 55px;
+	display:inline-block;
+	text-align:center;
 }
 .category.gray{
 	background:#8DA0B2;
@@ -57,8 +94,9 @@ body {
 }
 section{
 	height:100%;
+	min-width:1100px;
 	width:80%;
-	margin-top:60px;
+	margin-bottom:20px;
 }
 table {
 	width:100%;
@@ -82,6 +120,7 @@ th{
 
 th, td {
 	padding: 10px;
+	font-size : 14px;
 }
 tr:first-child{
 	border-top:1px solid #b7b7b7;
@@ -100,16 +139,62 @@ tr:nth-child(even){
 	text-align:right;
 }
 
-#content td{
+td#content{
 	height:500px;
 	font-size:18px;
 	vertical-align : top;
 	padding:20px;
 	overflow: auto;
+	text-align:left;
+}
+
+body:has(.detail) {
+	background:#f4f4f4;
+}
+.detail{
+	width:1100px;
+	margin : 0 auto;
+	margin-top:50px;
+}
+.detail tr{
+	border-top : none;
+	border-bottom : 1px solid #f4f4f4;
+}
+.detail #content{
+	background : #fcfcfc;
+}
+.detail #content pre{
+	line-height:1.2em;
+}
+.detail td{
+	padding:20px;
+	background:#fff;
+}
+.detail .title{
+	font-size:20px;
+	text-align:left;
+}
+.detail img {
+	width: auto;
+	max-width:100%;
+	height: auto;
+	margin:0 auto;
+	display: block;
+}
+.file{
+	color:var(--color-orange);
+	text-decoration: underline;
 }
 h1 img{
 	width:260px;
 	height:auto;
+}
+h2{
+	font-weight:100;
+	font-size:2em;
+	width : 500px;
+	text-align:left;
+	margin-bottom:10px;
 }
 /* 폼 */
 form{
@@ -117,6 +202,10 @@ form{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+form.write{
+	margin-top:70px;
+	width:500px;
 }
 form label{
 	margin-top:10px;
@@ -135,10 +224,10 @@ form select{
 	border-radius: 5px;
 }
 form textarea{
-	height:400px;
+	height:300px;
 	resize: none;
 	padding:30px;
-	font-size:20px;
+	font-size:15px;
 	line-height:1.5em;
 }
 
@@ -147,8 +236,10 @@ form textarea{
 	display: flex;
 	justify-content: space-between;
 }
-
-form input[type="button"].cancel{
+.btn_wrap input{
+	width:48.5%;
+}
+form input[type="button"].cancel,a.cancel{
 	background:#fff;
 	border:1px solid var(--color-orange);
 	color:var(--color-orange);
@@ -156,6 +247,12 @@ form input[type="button"].cancel{
 	text-decoration: none;
 	line-height: 20px;
 }
+a.cancel{
+	line-height: 50px;
+    width: 49.5%;
+    text-align: center;
+}
+
 form input[type="button"],
 form input[type="submit"],
 form input[type="reset"], form a{
@@ -181,16 +278,19 @@ form input[type="reset"], form a{
 
 header {
 	width:100%;
+	min-width:1100px;
 	display: flex;
 	align-items :center;
 	justify-content: space-between;
 	border-bottom:1px solid rgb(196, 197, 200);
 	padding:20px;
 	margin-bottom : 10px;
+	background:#fff;
 }
 header h1{
 	width:110px;
 	height:auto;
+	cursor: pointer;
 }
 header h1 img{
 	width:100%;
@@ -243,4 +343,33 @@ header ul li a {
 	text-decoration: none;
 	padding: 0 10px;
 	border-right: 1px solid #f0f0f0;
+}
+
+/* 상세보기 버튼  */
+div:has(div.mini_btn_wrap) {
+	width:1100px;
+	display:flex;
+	justify-content: right;
+	margin-bottom:50px;
+	margin-top : 20px;
+}
+.mini_btn_wrap {
+	display: flex;
+	justify-content: space-between;
+	
+}
+
+.mini_btn_wrap a{
+	border-radius: 5px;
+	padding : 5px 20px;
+	background : #FF7B54;
+	color:#fff;
+	margin-right:10px;
+}
+.mini_btn_wrap a:nth-child(2) {
+	background: #F49D1A;
+}
+.mini_btn_wrap a:last-child {
+	background: #FFB26B;
+	margin-right:0px;
 }

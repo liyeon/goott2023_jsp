@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html style="height:100%;">
 <head>
 <meta charset="UTF-8">
 <title></title>
 <link rel="stylesheet" href="../css/style.css" media="all" />
 </head>
-<body>
+<body style="height:100%;">
 <c:choose> 
 	<c:when test="${error eq '아이디없음' }"> 
 		<p>입력하신 아이디가 없습니다.</p>

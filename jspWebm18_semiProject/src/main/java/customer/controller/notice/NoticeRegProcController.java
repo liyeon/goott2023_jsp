@@ -1,7 +1,5 @@
 package customer.controller.notice;
 
-import java.nio.file.FileSystems;
-
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,9 +19,11 @@ public class NoticeRegProcController implements Controller {
 //		path 만들기
 		String path = "upload";
 		ServletContext ctx = request.getServletContext();
+		System.out.println("현재 프로젝트 경로"+request.getContextPath());
 		path = ctx.getRealPath(path);
 		System.out.println("real path ~~ : "+path);
 		path="C:\\javabigsetjsp2023\\jsp_work\\jspWebm18_semiProject\\src\\main\\webapp\\upload";
+		System.out.println(request.getRequestURI());
 //		multipart형식으로 데이터 받기
 		MultipartRequest req = new MultipartRequest(request,path,10*1024*1024,"utf-8",new DefaultFileRenamePolicy());
 		String uid = req.getParameter("uid");

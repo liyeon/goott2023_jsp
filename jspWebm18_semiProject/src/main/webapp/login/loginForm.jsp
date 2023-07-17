@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html style="height:100%;">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>벅스 : 로그인</title>
 <link rel="stylesheet" href="../css/style.css" media="all" />
-<link rel="shortcut icon" href="./img/faviconBugs.ico" />
+<link rel="shortcut icon" href="../img/faviconBugs.ico" />
 <script>
 function checkValue(){
  	inputForm = eval("document.loginInfo")/* name으로 객체 가져오기 */
@@ -26,7 +26,7 @@ function goJoinForm(){
 }
 </script>
 </head>
-<body>
+<body style="height:100%;">
 <h1><img src="../img/logo.svg" alt="" /></h1>
 <form action="loginProc.do" name="loginInfo" method="post" onsubmit="return checkValue()">
 	<label for="id">아이디</label>

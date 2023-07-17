@@ -1,7 +1,7 @@
 create table bugsboard(
 bno NUMBER,
 btitle varchar2(255),
-bcontent varchar2(1000),
+bcontent CLOB,
 bwriter varchar2(100),
 bcategory varchar2(100),
 bdate date,
@@ -9,6 +9,9 @@ bhit NUMBER,-- 조회수
 filesrc varchar2(255)
 );
 drop table bugsboard;
+commit;
+
+ALTER TABLE bugsboard MODIFY bcontent CLOB;
 CREATE SEQUENCE bugsboard_seq
        INCREMENT BY 1 -- 증가값
        START WITH 1 -- 시작값
@@ -19,7 +22,7 @@ CREATE SEQUENCE bugsboard_seq
        NOORDER; -- 요청 순서대로 값 생성할지 여부
        
        commit;
-       
+
 select * from bugsboard;
 insert into bugsboard values(bugsboard_seq.nextval, '제목','내용','작성자','공지사항',sysdate,0,null);
 insert into bugsboard values(bugsboard_seq.nextval, '점검사항있습니다.','점검사항','관리자','점검',sysdate,0,null);
